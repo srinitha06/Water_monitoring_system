@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://water-monitoring-system-frontend-bb.vercel.app"],
+    origin: ["http://localhost:5173", "https://water-monitoring-system-frontend-bb.vercel.app,https://water-monitoring-system-frontend-ez.vercel.app/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
