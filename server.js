@@ -8,7 +8,14 @@ const axios = require("axios");
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://water-monitoring-system-frontend-bb.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 mongoose
@@ -80,6 +87,8 @@ Water Dispenser Monitoring Team`,
     res.status(500).json({ message: "Error registering user", error: err });
   }
 });
+
+
 
 
 app.post("/login", async (req, res) => {
