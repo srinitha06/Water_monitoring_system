@@ -66,20 +66,20 @@ app.post("/signup", async (req, res) => {
   try {
     await newUser.save();
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Welcome to Water Dispenser System",
-      text: `Hello ${username},
+//     const mailOptions = {
+//       from: process.env.EMAIL_USER,
+//       to: email,
+//       subject: "Welcome to Water Dispenser System",
+//       text: `Hello ${username},
 
-Thank you for signing up for the Water Dispenser Monitoring System.
-You can now log in and manage your dispensers.
+// Thank you for signing up for the Water Dispenser Monitoring System.
+// You can now log in and manage your dispensers.
 
-Best regards,
-Water Dispenser Monitoring Team`,
-    };
+// Best regards,
+// Water Dispenser Monitoring Team`,
+//     };
 
-    await transporter.sendMail(mailOptions);
+//     await transporter.sendMail(mailOptions);
     res
       .status(201)
       .json({ message: "User registered successfully, welcome email sent" });
@@ -100,21 +100,21 @@ app.post("/login", async (req, res) => {
     if (user.password !== password)
       return res.status(401).json({ message: "Invalid password" });
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Login Successful - Water Dispenser System",
-      text: `Hello ${user.username},
+//     const mailOptions = {
+//       from: process.env.EMAIL_USER,
+//       to: email,
+//       subject: "Login Successful - Water Dispenser System",
+//       text: `Hello ${user.username},
 
-You have successfully logged in to the Water Dispenser Monitoring System at ${new Date().toLocaleString()}.
+// You have successfully logged in to the Water Dispenser Monitoring System at ${new Date().toLocaleString()}.
 
-If this wasn’t you, please secure your account immediately.
+// If this wasn’t you, please secure your account immediately.
 
-Best regards,
-Water Dispenser Monitoring Team`,
-    };
+// Best regards,
+// Water Dispenser Monitoring Team`,
+//     };
 
-    await transporter.sendMail(mailOptions);
+//     await transporter.sendMail(mailOptions);
     res
       .status(200)
       .json({ message: "Login successful, email notification sent" });
